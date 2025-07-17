@@ -16,7 +16,10 @@
           admin
           ;
       };
-      modules = [ ../hosts/${host}.nix ];
+      modules = [
+        ../hosts/${host}.nix
+        ../sessions/${session}.nix
+      ];
     };
 
   # Generate configuration for home-manager.
