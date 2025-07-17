@@ -74,7 +74,15 @@ let
       wakeOnLan.enable = false;
     };
 
-    power = { };
+    power = {
+      restartAfterFreeze = true;
+      sleep = {
+        computer = "never";
+        display = 180;
+        harddisk = 10;
+        allowSleepByPowerButton = false;
+      };
+    };
 
     security = {
       # Enable Touch ID with sudo.
