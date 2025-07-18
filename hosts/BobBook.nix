@@ -8,10 +8,13 @@
 {
   imports = [
     inputs.nix-homebrew.darwinModules.nix-homebrew
-    ({ config, ... }: {
-      # Pass all taps from nix-homebrew to nix-darwin.homebrew.
-      homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
-    })
+    (
+      { config, ... }:
+      {
+        # Pass all taps from nix-homebrew to nix-darwin.homebrew.
+        homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
+      }
+    )
   ];
 
   nix = {
@@ -80,6 +83,13 @@
       upgrade = true;
       # Uninstall and remove all associated files.
       cleanup = "zap";
+    };
+    casks = [
+      "aldente"
+      "zed"
+    ];
+    masApps = {
+      "AdBlock Pro" = 1018301773;
     };
   };
 
