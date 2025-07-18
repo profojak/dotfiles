@@ -6,7 +6,13 @@
   ...
 }:
 {
-  imports = [ inputs.nix-homebrew.darwinModules.nix-homebrew ];
+  imports = [
+    inputs.nix-homebrew.darwinModules.nix-homebrew
+    ({ config, ... }: {
+      # Pass all taps from nix-homebrew to nix-darwin.homebrew.
+      homebrew.taps = builtins.attrNames config.nix-homebrew.taps;
+    })
+  ];
 
   nix = {
     enable = true;
@@ -81,6 +87,8 @@
     enable = true;
     user = admin;
     taps."homebrew/homebrew-cask" = inputs.homebrew-cask;
+    # Disallow `brew tap` to add taps.
+    mutableTaps = false;
   };
 
   networking = {
