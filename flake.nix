@@ -32,7 +32,7 @@
 
       # Formatter.
       treefmt = import ./lib/treefmt.nix {
-        inherit inputs treefmt-nix systems;
+        inherit inputs;
         pkgs = nixpkgs-unstable;
       };
     in

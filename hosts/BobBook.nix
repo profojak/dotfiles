@@ -1,7 +1,6 @@
 {
   pkgs,
   inputs,
-  lib,
   host,
   admin,
   ...
@@ -48,10 +47,7 @@
   };
 
   environment = {
-    systemPackages = with pkgs; [
-      vim
-      git
-    ];
+    systemPackages = with pkgs; [ ];
     variables = {
       EDITOR = "vim";
     };

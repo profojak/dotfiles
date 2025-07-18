@@ -1,18 +1,12 @@
-{
-  pkgs,
-  inputs,
-  treefmt-nix,
-  systems,
-}:
-
+{ pkgs, inputs }:
 let
   # Iterate over each system.
-  eachSystem = f: pkgs.lib.genAttrs (import systems) (system: f pkgs.legacyPackages.${system});
+  eachSystem = f: pkgs.lib.genAttrs (import inputs.systems) (system: f pkgs.legacyPackages.${system});
 
   # Configure Treefmt.
   configuration = eachSystem (
     p:
-    treefmt-nix.lib.evalModule p {
+    inputs.treefmt-nix.lib.evalModule p {
       projectRootFile = "flake.nix";
 
       # Format using the official nixfmt formatter and be strict.
