@@ -6,6 +6,8 @@
   ...
 }:
 {
+  imports = [ inputs.nix-homebrew.darwinModules.nix-homebrew ];
+
   nix = {
     enable = true;
     checkConfig = true;
@@ -50,9 +52,35 @@
     systemPackages = with pkgs; [ ];
     variables = {
       EDITOR = "vim";
+      HOMEBREW_NO_ANALYTICS = "1";
     };
     # Do not set path to nix-darwin configuration, this is flake-based system!
     darwinConfig = null;
+  };
+
+  homebrew = {
+    enable = true;
+    global = {
+      # Update automatically when running `brew install`, `brew upgrade`, …
+      autoUpdate = true;
+      # Generate lockfile when manually invoking `brew bundle`.
+      lockfiles = true;
+    };
+    # Upgrade casks even if unversioned or having built-in updating.
+    greedyCasks = true;
+    onActivation = {
+      # Updates and upgrades automatically when running nix-darwin system activation.
+      autoUpdate = true;
+      upgrade = true;
+      # Uninstall and remove all associated files.
+      cleanup = "zap";
+    };
+  };
+
+  nix-homebrew = {
+    enable = true;
+    user = admin;
+    taps."homebrew/homebrew-cask" = inputs.homebrew-cask;
   };
 
   networking = {

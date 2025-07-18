@@ -11,6 +11,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
     treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
@@ -20,6 +25,8 @@
       nixpkgs-unstable,
       nix-darwin,
       home-manager,
+      nix-homebrew,
+      homebrew-cask,
       treefmt-nix,
       systems,
     }:
