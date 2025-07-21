@@ -1,5 +1,6 @@
-{ pkgs, inputs, ... }:
 {
+  imports = [ ../modules/helix.nix ];
+
   home = {
     username = "profojak";
     homeDirectory = "/Users/profojak";

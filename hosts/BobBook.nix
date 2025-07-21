@@ -58,9 +58,9 @@
   };
 
   environment = {
-    systemPackages = with pkgs; [ ];
+    systemPackages = with pkgs; [ helix ];
     variables = {
-      EDITOR = "vim";
+      EDITOR = "hx";
       HOMEBREW_NO_ANALYTICS = "1";
     };
     # Do not set path to nix-darwin configuration, this is flake-based system!
