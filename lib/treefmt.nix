@@ -1,16 +1,9 @@
-{ inputs }:
+{ inputs, iterators }:
 let
-  # Iterate over each system.
-  eachSystem =
-    f:
-    inputs.nixpkgs.lib.genAttrs (import inputs.systems) (
-      system: f inputs.nixpkgs.legacyPackages.${system}
-    );
-
   # Configure Treefmt.
-  configuration = eachSystem (
-    p:
-    inputs.treefmt-nix.lib.evalModule p {
+  configuration = iterators.eachPackage (
+    pkgs:
+    inputs.treefmt-nix.lib.evalModule pkgs {
       projectRootFile = "flake.nix";
 
       # Format using the official nixfmt formatter and be strict.
@@ -26,10 +19,10 @@ let
 in
 {
   # Formatter for `nix fmt`.
-  formatter = eachSystem (p: configuration.${p.system}.config.build.wrapper);
+  formatter = iterators.eachPackage (pkgs: configuration.${pkgs.system}.config.build.wrapper);
 
   # Formatter checks for `nix flake check`.
-  checks = eachSystem (p: {
-    formatting = configuration.${p.system}.config.build.check inputs.self;
+  checks = iterators.eachPackage (pkgs: {
+    formatting = configuration.${pkgs.system}.config.build.check inputs.self;
   });
 }
