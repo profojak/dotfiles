@@ -1,9 +1,10 @@
+{ args, ... }:
 {
   imports = [ ../modules/helix.nix ];
 
   home = {
-    username = "profojak";
-    homeDirectory = "/Users/profojak";
+    username = args.user;
+    homeDirectory = "/Users/${args.user}";
 
     # Set compatible home-manager release.
     stateVersion = "25.05";

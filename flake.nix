@@ -2,14 +2,14 @@
   description = "Nix System Configuration";
 
   inputs = {
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     homebrew-cask = {
@@ -20,28 +20,22 @@
   };
 
   outputs =
-    inputs@{
+    {
       self,
-      nixpkgs-unstable,
+      nixpkgs,
       nix-darwin,
       home-manager,
       nix-homebrew,
       homebrew-cask,
       treefmt-nix,
       systems,
-    }:
+    }@inputs:
     let
       # Configurations.
-      configurations = import ./lib/configurations.nix {
-        inherit inputs;
-        pkgs = nixpkgs-unstable;
-      };
+      configurations = import ./lib/configurations.nix { inherit inputs; };
 
       # Formatter.
-      treefmt = import ./lib/treefmt.nix {
-        inherit inputs;
-        pkgs = nixpkgs-unstable;
-      };
+      treefmt = import ./lib/treefmt.nix { inherit inputs; };
     in
     {
       # Configuration for `darwin-rebuild --flake .#configuration`.

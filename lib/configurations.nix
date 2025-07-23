@@ -1,4 +1,4 @@
-{ pkgs, inputs }:
+{ inputs }:
 {
   # Generate configuration for nix-darwin.
   makeDarwin =
@@ -6,16 +6,9 @@
       host,
       session,
       admin,
-    }:
+    }@args:
     inputs.nix-darwin.lib.darwinSystem {
-      specialArgs = {
-        inherit
-          inputs
-          host
-          session
-          admin
-          ;
-      };
+      specialArgs = { inherit inputs args; };
       modules = [
         ../hosts/${host}.nix
         ../sessions/${session}.nix
@@ -24,10 +17,10 @@
 
   # Generate configuration for home-manager.
   makeHome =
-    { user, system }:
+    { user, system }@args:
     inputs.home-manager.lib.homeManagerConfiguration {
-      pkgs = pkgs.legacyPackages.${system};
-      extraSpecialArgs = { inherit inputs user system; };
+      pkgs = inputs.nixpkgs.legacyPackages.${system};
+      extraSpecialArgs = { inherit inputs args; };
       modules = [ ../users/${user}.nix ];
     };
 }

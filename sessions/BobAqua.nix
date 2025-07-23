@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ lib, ... }:
 let
   appearance.defaults = {
     NSGlobalDomain = {
@@ -222,7 +222,7 @@ let
 in
 {
   time.timeZone = "Europe/Prague";
-  system = pkgs.lib.mkMerge [
+  system = lib.mkMerge [
     appearance
     window
     mouse

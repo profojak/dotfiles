@@ -1,7 +1,11 @@
-{ pkgs, inputs }:
+{ inputs }:
 let
   # Iterate over each system.
-  eachSystem = f: pkgs.lib.genAttrs (import inputs.systems) (system: f pkgs.legacyPackages.${system});
+  eachSystem =
+    f:
+    inputs.nixpkgs.lib.genAttrs (import inputs.systems) (
+      system: f inputs.nixpkgs.legacyPackages.${system}
+    );
 
   # Configure Treefmt.
   configuration = eachSystem (

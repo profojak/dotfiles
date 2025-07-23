@@ -1,8 +1,7 @@
 {
-  pkgs,
   inputs,
-  host,
-  admin,
+  args,
+  pkgs,
   ...
 }:
 {
@@ -23,7 +22,7 @@
     settings = {
       # Allow `nix flake` command, and allow admin user to connect to Nix daemon.
       experimental-features = "nix-command flakes";
-      allowed-users = [ admin ];
+      allowed-users = [ args.admin ];
       # Allow builder to use all available CPU cores, and all available logical cores.
       cores = 0;
       max-jobs = "auto";
@@ -95,15 +94,15 @@
 
   nix-homebrew = {
     enable = true;
-    user = admin;
+    user = args.admin;
     taps."homebrew/homebrew-cask" = inputs.homebrew-cask;
     # Disallow `brew tap` to add taps.
     mutableTaps = false;
   };
 
   networking = {
-    computerName = host;
-    hostName = host;
+    computerName = args.host;
+    hostName = args.host;
     wakeOnLan.enable = false;
   };
 
@@ -123,7 +122,7 @@
   };
 
   system = {
-    primaryUser = admin;
+    primaryUser = args.admin;
     # Set compatible nix-darwin release, and Git revision of top-level system flake.
     stateVersion = 6;
     configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
