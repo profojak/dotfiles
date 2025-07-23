@@ -31,16 +31,12 @@
       systems,
     }@inputs:
     let
-      # Configurations.
-      configurations = import ./lib/configurations.nix { inherit inputs; };
-
-      # Formatter.
-      treefmt = import ./lib/treefmt.nix { inherit inputs; };
+      inherit (self.outputs) lib;
     in
     {
       # Configuration for `darwin-rebuild --flake .#configuration`.
       darwinConfigurations = {
-        "BobBook" = configurations.makeDarwin {
+        "BobBook" = lib.configurations.makeDarwin {
           host = "BobBook";
           session = "BobAqua";
           admin = "profojak";
@@ -49,16 +45,19 @@
 
       # Configuration for `home-manager --flake .#configuration`.
       homeConfigurations = {
-        "profojak.aarch64-darwin" = configurations.makeHome {
+        "profojak.aarch64-darwin" = lib.configurations.makeHome {
           user = "profojak";
           system = "aarch64-darwin";
         };
       };
 
+      # Library of helper functions.
+      lib = import ./lib { inherit inputs; };
+
       # Formatter for `nix fmt`.
-      formatter = treefmt.formatter;
+      formatter = lib.treefmt.formatter;
 
       # Checks for `nix flake check`.
-      checks = treefmt.checks;
+      checks = lib.treefmt.checks;
     };
 }
