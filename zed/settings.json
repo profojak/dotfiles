@@ -12,4 +12,10 @@
   "buffer_font_size": 13,
   "buffer_font_weight": 400.0,
   "buffer_line_height": "standard",
+
+  // Cursor
+  "multi_cursor_modifier": "alt",
+  "cursor_blink": true,
+  "cursor_shape": "bar",
+  "hide_mouse": "on_typing_and_movement",
 }
