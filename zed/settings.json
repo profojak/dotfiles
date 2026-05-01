@@ -51,4 +51,10 @@
   "cursor_blink": true,
   "cursor_shape": "bar",
   "hide_mouse": "on_typing_and_movement",
+
+  // Highlighting & Guides
+  "current_line_highlight": "gutter",
+  "selection_highlight": true,
+  "rounded_selection": true,
+  "show_wrap_guides": true,
 }
