@@ -86,4 +86,16 @@
       "vertical": true,
     },
   },
+
+  // Toolbar
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false,
+  },
+
+  // Indentation
+  "tab_size": 4,
+  "hard_tabs": false,
+  "auto_indent": "syntax_aware",
+  "auto_indent_on_paste": true,
 }
