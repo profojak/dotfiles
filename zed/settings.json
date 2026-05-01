@@ -57,4 +57,18 @@
   "selection_highlight": true,
   "rounded_selection": true,
   "show_wrap_guides": true,
+
+  // Auto Save
+  "autosave": "off",
+
+  // Gutter
+  "gutter": {
+    "line_numbers": false,
+    "runnables": true,
+    "breakpoints": true,
+    "bookmarks": true,
+    "folds": false,
+  },
+  "relative_line_numbers": "disabled",
+  "inline_code_actions": true,
 }
