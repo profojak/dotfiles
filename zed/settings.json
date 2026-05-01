@@ -71,4 +71,19 @@
   },
   "relative_line_numbers": "disabled",
   "inline_code_actions": true,
+
+  // Scrollbar
+  "scrollbar": {
+    "show": "auto",
+    "cursors": true,
+    "git_diff": true,
+    "search_results": true,
+    "selected_text": true,
+    "selected_symbol": true,
+    "diagnostics": "all",
+    "axes": {
+      "horizontal": false,
+      "vertical": true,
+    },
+  },
 }
