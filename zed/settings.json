@@ -58,8 +58,29 @@
   "rounded_selection": true,
   "show_wrap_guides": true,
 
+  // Base Keymap & Modal Editing
+  // TODO
+
   // Auto Save
   "autosave": "off",
+
+  // Which-key Menu
+  // TODO
+
+  // Multibuffer
+  // TODO
+
+  // Scrolling
+  // TODO
+
+  // Signature Help
+  // TODO
+
+  // Hover Popover
+  // TODO
+
+  // Drag And Drop Selection
+  // TODO
 
   // Gutter
   "gutter": {
@@ -92,6 +113,15 @@
     "breadcrumbs": false,
     "quick_actions": false,
   },
+
+  // Minimap
+  // TODO
+
+  // Toolbar
+  // TODO
+
+  // Vim
+  // TODO
 
   // Indentation
   "tab_size": 4,
