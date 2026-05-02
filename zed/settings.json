@@ -108,17 +108,16 @@
     },
   },
 
+  // Minimap
+  "minimap": {
+    "show": "never"
+  },
+
   // Toolbar
   "toolbar": {
     "breadcrumbs": false,
     "quick_actions": false,
   },
-
-  // Minimap
-  // TODO
-
-  // Toolbar
-  // TODO
 
   // Vim
   // TODO
@@ -128,4 +127,9 @@
   "hard_tabs": false,
   "auto_indent": "syntax_aware",
   "auto_indent_on_paste": true,
+
+  // Wrapping
+  "soft_wrap": "none",
+  "preferred_line_length": 80,
+  "allow_rewrap": "in_comments",
 }
