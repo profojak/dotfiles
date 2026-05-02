@@ -147,4 +147,7 @@
   "remove_trailing_whitespace_on_save": true,
   "ensure_final_newline_on_save": true,
   "use_on_type_format": true,
-  }
+
+  // Whitespace
+  "show_whitespaces": "selection",
+}
