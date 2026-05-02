@@ -110,7 +110,7 @@
 
   // Minimap
   "minimap": {
-    "show": "never"
+    "show": "never",
   },
 
   // Toolbar
