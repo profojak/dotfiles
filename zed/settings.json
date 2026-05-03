@@ -216,4 +216,98 @@
   // Pane Split Direction
   "pane_split_direction_horizontal": "down",
   "pane_split_direction_vertical": "right",
+
+  // Project Panel
+  "project_panel": {
+    "button": true,
+    "dock": "left",
+    "default_width": 220.0,
+    "hide_gitignore": false,
+    "entry_spacing": "comfortable",
+    "file_icons": true,
+    "folder_icons": false,
+    "git_status": true,
+    "indent_size": 20.0,
+    "auto_reveal_entries": true,
+    "starts_open": false,
+    "auto_fold_dirs": true,
+    "bold_folder_labels": false,
+    "scrollbar": {
+      "show": "auto",
+      "horizontal_scroll": true,
+    },
+    "show_diagnostics": "all",
+    "diagnostic_badges": true,
+    "git_status_indicator": false,
+    "sticky_scroll": true,
+    "indent_guides": {
+      "show": "always",
+    },
+    "drag_and_drop": true,
+    "hide_root": true,
+    "hide_hidden": false,
+    "sort_mode": "directories_first",
+    "sort_order": "default",
+    "auto_open": {
+      "on_create": true,
+      "on_paste": true,
+      "on_drop": true,
+    },
+  },
+
+  // Terminal Panel
+  "terminal": {
+    "button": true,
+    "dock": "bottom",
+    "flexible": true,
+    "show_count_badge": false,
+  },
+
+  // Outline Panel
+  "outline_panel": {
+    "button": true,
+    "dock": "left",
+    "default_width": 220.0,
+    "file_icons": true,
+    "folder_icons": false,
+    "git_status": true,
+    "indent_size": 16.0,
+    "auto_reveal_entries": true,
+    "auto_fold_dirs": true,
+    "indent_guides": {
+      "show": "always",
+    },
+  },
+
+  // Git Panel
+  "git_panel": {
+    "button": true,
+    "dock": "left",
+    "default_width": 220.0,
+    "status_style": "icon",
+    "fallback_branch_name": "main",
+    "sort_by_path": false,
+    "collapse_untracked_diff": true,
+    "tree_view": false,
+    "file_icons": false,
+    "folder_icons": false,
+    "diff_stats": true,
+    "show_count_badge": false,
+    "scrollbar": {
+      "show": "auto",
+    },
+  },
+
+  // Debugger Panel
+  "debugger": {
+    "button": true,
+    "dock": "bottom",
+  },
+
+  // Collaboration Panel
+  "collaboration_panel": {
+    "button": true,
+    "dock": "right",
+    "default_width": 220.0,
+  },
 }
