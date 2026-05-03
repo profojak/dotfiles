@@ -212,4 +212,8 @@
 
   // Pane Modifiers
   // TODO
+
+  // Pane Split Direction
+  "pane_split_direction_horizontal": "down",
+  "pane_split_direction_vertical": "right",
 }
