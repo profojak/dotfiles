@@ -13,9 +13,10 @@
     {
       packages.${system}.default = pkgs.buildEnv {
         name = "BobBook";
-        paths = with pkgs; [
-          helix
-        ];
+        paths = builtins.attrValues {
+          inherit (pkgs)
+          helix;
+        };
       };
     };
 }
