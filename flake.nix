@@ -22,6 +22,7 @@
         name = "BobBook";
         paths = builtins.attrValues {
           inherit (pkgs)
+          fish
           helix;
           inherit (agents)
           pi;
